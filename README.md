@@ -1,2 +1,5 @@
-# nhl_matching_game
-A game of matching the logos for every NHL team
+# NHL Matching Game
+
+A game of matching the logos for every NHL team.
+
+Play it [here](#)
