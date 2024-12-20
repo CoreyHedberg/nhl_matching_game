@@ -1,0 +1,48 @@
+:root {
+  --pageBackground: #060ab2;
+  --cardBackground: #1c7ccc;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  background: var(--pageBackground);
+}
+
+.memory-game {
+  width: 1280px;
+  height: 1280px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.memory-card {
+  width: calc(11% - 8px);
+  height: calc(11% - 8px);
+  margin: 0.5rem;
+  position: relative;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  transform: scale(1);
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background: var(--cardBackground);
+}
