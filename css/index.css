@@ -21,6 +21,7 @@ body {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+  perspective: 1000px;
 }
 
 .memory-card {
@@ -30,6 +31,8 @@ body {
   position: relative;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
   transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
 }
 
 .memory-card:active {
@@ -37,12 +40,21 @@ body {
   transition: transform 0.2s;
 }
 
+.memory-card:hover {
+  border: 2px solid #fff;
+  border-radius: 6px;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
 .front-face,
 .back-face {
   width: 100%;
   height: 100%;
-  padding: 20px;
+  padding: 0.65rem;
   position: absolute;
-  border-radius: 5px;
+  border-radius: 6px;
   background: var(--cardBackground);
 }
