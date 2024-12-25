@@ -15,6 +15,18 @@ body {
   background: var(--pageBackground);
 }
 
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  border: 1px dashed yellow;
+}
+
 .memory-game {
   width: 1280px;
   height: 1280px;
@@ -22,6 +34,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   perspective: 1000px;
+  border: 1px dashed red;
 }
 
 .memory-card {
