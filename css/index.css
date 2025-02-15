@@ -64,4 +64,9 @@ body {
   position: absolute;
   border-radius: 6px;
   background: var(--cardBackground);
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
 }
