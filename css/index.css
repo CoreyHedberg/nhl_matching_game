@@ -15,10 +15,17 @@ body {
   background: var(--pageBackground);
 }
 
-.container {
+/* .game-stats {
   display: flex;
   flex-wrap: wrap;
-}
+  flex-direction: row;
+} */
+
+/* .game-stats {
+  display: grid;
+  grid-template-rows: 3, 1fr;
+  grid-template-columns: 2, 1fr;
+} */
 
 /* TODO: CSS Grid is needed on the memory-game class to better organize the cards */
 .memory-game {
