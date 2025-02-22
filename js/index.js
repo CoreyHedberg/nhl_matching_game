@@ -7,6 +7,9 @@ const CARDS = document.querySelectorAll(".memory-card")
 const TIMER = document.getElementById("timer")
 const MATCHED = document.getElementById(`matched`)
 const ATTEMPTS = document.getElementById(`attempts`)
+// Variables for the timer function
+let stopwatchTimer = 0
+let stopwatchInterval
 
 TIMER.innerHTML = `08:52`
 ATTEMPTS.innerText = attempts
@@ -73,3 +76,30 @@ function resetBoard() {
 })()
 
 CARDS.forEach((card) => card.addEventListener("click", flipCard))
+
+// Code for confetti effect
+// Source: https://www.cssscript.com/confetti-falling-animation/
+
+function confetti() {
+  startConfetti()
+}
+
+// Code for the timer
+function startStopwatch() {
+  stopwatchInterval = setInterval(() => {
+    stopwatchTimer++
+    let minutes = Math.floor(stopwatchTimer / 60)
+    let seconds = stopwatchTimer % 60
+    console.log(minutes + ":" + seconds)
+  }, 1000)
+}
+
+function stopStopwatch() {
+  clearInterval(stopwatchInterval)
+}
+
+function resetStopwatch() {
+  stopStopwatch()
+  stopwatchTimer = 0
+  console.log("Stopwatch reset")
+}
