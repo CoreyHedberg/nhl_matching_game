@@ -7,11 +7,13 @@ const CARDS = document.querySelectorAll(".memory-card")
 const TIMER = document.getElementById("timer")
 const MATCHED = document.getElementById(`matched`)
 const ATTEMPTS = document.getElementById(`attempts`)
-// Variables for the timer function
-let stopwatchTimer = 0
-let stopwatchInterval
+// Variables for timer
+let timerMinutes = 0
+let timerSeconds = 0
+const MINUTES = document.getElementById("minutes")
+const SECONDS = document.getElementById("seconds")
 
-TIMER.innerHTML = `08:52`
+// TIMER.innerHTML = `08:52`
 ATTEMPTS.innerText = attempts
 MATCHED.innerText = matches
 
@@ -31,13 +33,11 @@ function flipCard() {
 }
 
 function checkForMatch() {
-  console.log(`fired`)
   // TODO: Count the number of attempts made to make a match
   let isMatch = firstCard.dataset.team === secondCard.dataset.team
   isMatch ? disableCards() : unflipCards()
   attempts++
   ATTEMPTS.innerText = attempts
-  console.log(attempts)
 }
 
 // TODO: Figure out how to calculate the success percentage
@@ -48,7 +48,6 @@ function disableCards() {
   // TODO: Count the number of matches completed
   matches++
   MATCHED.innerText = matches
-  console.log(matches)
   resetBoard()
 }
 
@@ -80,26 +79,28 @@ CARDS.forEach((card) => card.addEventListener("click", flipCard))
 // Code for confetti effect
 // Source: https://www.cssscript.com/confetti-falling-animation/
 
-function confetti() {
+// Code for the timer
+// Source: https://codepen.io/DevBillyM/pen/ExGgaNJ
+let gameTimer = function timer() {
+  timerSeconds++
+  if (timerSeconds >= 60) {
+    timerSeconds = 0
+    timerMinutes++
+  }
+  MINUTES.textContent = timerMinutes.toString().padStart(2, `0`)
+  SECONDS.textContent = timerSeconds.toString().padStart(2, `0`)
+}
+
+setInterval(gameTimer, 1000)
+
+// Function for when game ends
+function gameCompleted() {
+  clearInterval(gameTimer)
   startConfetti()
 }
 
-// Code for the timer
-function startStopwatch() {
-  stopwatchInterval = setInterval(() => {
-    stopwatchTimer++
-    let minutes = Math.floor(stopwatchTimer / 60)
-    let seconds = stopwatchTimer % 60
-    console.log(minutes + ":" + seconds)
-  }, 1000)
+if (matches === 32) {
+  gameCompleted()
 }
 
-function stopStopwatch() {
-  clearInterval(stopwatchInterval)
-}
-
-function resetStopwatch() {
-  stopStopwatch()
-  stopwatchTimer = 0
-  console.log("Stopwatch reset")
-}
+// TODO: Need to figure out why the timer is not stopping when the game is completed.

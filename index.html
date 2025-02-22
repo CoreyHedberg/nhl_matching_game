@@ -9,8 +9,8 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="./css/index.min.css" />
-    <script defer src="./js/confetti.js"></script>
-    <script defer src="./js/index.js"></script>
+    <script defer src="./js/confetti.min.js"></script>
+    <script defer src="./js/index.min.js"></script>
     <title>NHL Matching Game</title>
   </head>
   <body>
@@ -18,7 +18,6 @@
     <!-- TODO: Timer to begin when the game starts -->
     <!-- TODO: Make it a PWA -->
     <section class="container">
-      <button onclick="startStopwatch()">Click to start the timer</button>
       <h1>NHL Matching Game</h1>
       <table class="game-stats">
         <tr>
@@ -27,7 +26,11 @@
           <th>Matched</th>
         </tr>
         <tr>
-          <td id="timer"></td>
+          <td id="timer">
+            <span id="minutes" class="time">00</span>
+            <span>:</span>
+            <span id="seconds" class="time">00</span>
+          </td>
           <td id="attempts"></td>
           <td id="matched"></td>
         </tr>
