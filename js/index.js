@@ -33,11 +33,10 @@ function flipCard() {
 }
 
 function checkForMatch() {
-  // TODO: Count the number of attempts made to make a match
   let isMatch = firstCard.dataset.team === secondCard.dataset.team
   isMatch ? disableCards() : unflipCards()
   attempts++
-  ATTEMPTS.innerText = attempts
+  ATTEMPTS.textContent = attempts
 }
 
 // TODO: Figure out how to calculate the success percentage
@@ -45,9 +44,8 @@ function checkForMatch() {
 function disableCards() {
   firstCard.removeEventListener("click", flipCard)
   secondCard.removeEventListener("click", flipCard)
-  // TODO: Count the number of matches completed
   matches++
-  MATCHED.innerText = matches
+  MATCHED.textContent = matches
   resetBoard()
 }
 
@@ -99,7 +97,7 @@ function gameCompleted() {
   startConfetti()
 }
 
-if (matches === 32) {
+if (matches == 32) {
   gameCompleted()
 }
 
