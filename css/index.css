@@ -7,6 +7,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  color: white;
 }
 
 body {
@@ -21,7 +22,7 @@ body {
   flex-direction: row;
 } */
 
-/* .game-stats {
+/*.game-stats {
   display: grid;
   grid-template-rows: 3, 1fr;
   grid-template-columns: 2, 1fr;
